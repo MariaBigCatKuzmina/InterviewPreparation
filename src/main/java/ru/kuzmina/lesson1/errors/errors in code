@@ -1,7 +1,7 @@
 interface Moveable { --Movable
     void move();
 }
-interface Stopable { --Stoppable
+interface Stopable {  --Stoppable
     void stop();
 }
 
@@ -44,7 +44,7 @@ abstract class Car {
 class LightWeightCar extends Car implements Moveable {
 
     @Override
-    void open() {
+    void open() { -- лучше бы поставить модификатор доступа, хотя можно и без него, по умолчанию будет public
         System.out.println("Car is open");
     }
 
