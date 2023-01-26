@@ -1,14 +1,30 @@
 package ru.kuzmina.lesson3.SafeCounter;
 
-public class SafeCounter {
-    private volatile int count;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
 
-    synchronized void increment() {
-        count++;
+public class SafeCounter {
+    private int count;
+    Lock lock = new ReentrantLock();
+
+    public void increment() {
+        lock.lock();
+        try {
+            count++;
+            System.out.println(Thread.currentThread().getName() + "(increment): " + count);
+        } finally {
+            lock.unlock();
+        }
     }
 
-    synchronized void decrement() {
-        count--;
+    public void decrement() {
+        lock.lock();
+        try {
+            count--;
+            System.out.println(Thread.currentThread().getName() + "(decrement): " + count);
+        } finally {
+            lock.unlock();
+        }
     }
 
     public int getCount() {

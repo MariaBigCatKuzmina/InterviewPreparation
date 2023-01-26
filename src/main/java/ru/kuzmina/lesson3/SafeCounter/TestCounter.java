@@ -21,7 +21,7 @@ public class TestCounter {
         thread1.join();
         thread2.join();
 
-        System.out.println(counter.getCount());
+        System.out.println("counter = " + counter.getCount());
     }
 
 }
