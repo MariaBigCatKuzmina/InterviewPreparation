@@ -4,7 +4,7 @@ import javax.servlet.*;
 import javax.servlet.annotation.WebServlet;
 import java.io.IOException;
 
-@WebServlet(name = "HelloWorld", urlPatterns = "/")
+@WebServlet(name = "HelloWorld", urlPatterns = "")
 public class HelloWorldServlet implements Servlet {
     ServletConfig servletConfig;
 
