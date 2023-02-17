@@ -25,7 +25,6 @@ public class MyArrayList<E> {
         }
         list[index] = value;
         size++;
-
     }
 
     public void remove(int index) {
