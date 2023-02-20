@@ -1,0 +1,28 @@
+<div class="container">
+    <div class="text-center p-3">
+        <span ng-show="isNew">Новый студент</span>
+        <span ng-hide="isNew">Изменить студента</span>
+    </div>
+    <form class="" ng-submit="submitStudent()">
+        <div class="mb-3" ng-hide="isNew">
+            <input class="form-control" type="text" id="studentId" name="student_id"
+                   placeholder="id студента" ng-model="Student.id" disabled>
+        </div>
+        <div class="mb-3">
+            <input class="form-control" type="text" id="studentName" name="student_name"
+                   placeholder="имя студента" ng-model="Student.name">
+        </div>
+        <div class="mb-3">
+            <input class="form-control" type="text" id="studentAge" name="student_age"
+                   placeholder="возраст" ng-model="Student.age">
+        </div>
+        <div class="mb-3">
+            <input class="form-control" type="text" id="studentMark" name="student_mark"
+                   placeholder="средний балл студента" ng-model="Student.mark">
+        </div>
+        <div class="mb-3">
+            <button id="saveStudent" class="btn btn-outline-dark" type="submit">Сохранить</button>
+<!--            <button id="cancel" class="btn btn-dark-outline" type="reset">Отмена</button>-->
+        </div>
+    </form>
+</div>

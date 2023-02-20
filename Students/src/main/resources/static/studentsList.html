@@ -1,0 +1,63 @@
+<div ng-controller="studentsListController">
+    <h3 class="text-center mt-3"> Список студентов </h3>
+    <div class="container mt-3 mb-3">
+        <button type="button" class="btn btn-outline-dark" ng-click="addStudent()">
+            новый студент
+        </button>
+    </div>
+    <div class="container">
+        <table class="table table-sm table-hover">
+            <thead class="thead-dark text-center">
+            <tr>
+                <th scope="col">id</th>
+                <th scope="col">Имя студента</th>
+                <th scope="col">Возраст</th>
+                <th scope="col">Средний балл</th>
+                <th scope="col">...</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="s in studentsPage.content">
+                <td class="text-center">{{s.id}}</td>
+                <td>{{s.name}}</td>
+                <td class="text-center">{{s.age}}</td>
+                <td class="text-center">{{s.mark}}</td>
+                <td class="text-center">
+                    <button type="button" class="btn btn-outline-dark" ng-click="editStudent(s.id)">
+                        <i class="bi bi-pencil-square"></i>
+                    </button>
+                    <button type="button" class="btn btn-outline-dark" ng-click="deleteById(s.id)">
+                        <i class="bi bi-trash3"></i>
+                    </button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+        <nav aria-label="Page navigation">
+            <ul class="pagination">
+                <li class="page-item">
+                    <button type="button" class="page-link" ng-disabled="studentsPage.first"
+                            ng-click="pagedStudents(studentsPage.number)">
+                        Prev.
+                    </button>
+                </li>
+                <li class="page-item" ng-repeat="num in pagesNumbersArray">
+                    <button type="button" class="page-link"
+                            ng-class="{num: 'btn-outline-light'}[studentsPage.number + 1]"
+                            ng-click="pagedStudents(num)">
+                        {{num}}
+                        <span class="sr-only" ng-if="num == studentsPage.number + 1">(current)</span>
+
+                    </button>
+                </li>
+                <li class="page-item">
+                    <button type="button" class="page-link" ng-disabled="studentsPage.last"
+                            ng-click="pagedStudents(studentsPage.number + 2)">
+                        Next
+                    </button>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>
