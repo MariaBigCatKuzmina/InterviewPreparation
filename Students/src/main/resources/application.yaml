@@ -1,0 +1,13 @@
+server:
+  port: 8181
+  servlet:
+    context-path: /students
+spring:
+  jpa:
+    show-sql: true
+    database: postgresql
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/students
+    username: mariakuzmina
+    password: ifoha5tLPP_!
